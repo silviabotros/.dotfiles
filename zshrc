@@ -103,6 +103,7 @@ function mdsensu() { ln -sf ~/.sensu/settings_mdw.rb ~/.sensu/settings.rb; sensu
 function cssh-role() {
 if [ -z $1 ]; then
   echo -e "Usage: cssh-role [role_name] [chef_environment] [ldap_username]\n       [chef_environment] and [ldap_username] are optional"
+  return 0
 fi
 
 if [ -z $2 ]; then
@@ -112,21 +113,12 @@ else
 fi
 
 if [ -z $3 ]; then
-  LDAP_USER="rthe"
+  LDAP_USER="silvia"
 else
   LDAP_USER=$3
 fi
 
-SERVERS=`knife search node "roles:$1 AND chef_environment:${CHEF_ENV}" | grep FQDN | awk '{print $2}'`
-
-COMMAND="cssh"
-
-for SERVER in ${SERVERS[*]}; do
-  COMMAND="${COMMAND} ${LDAP_USER}@${SERVER}"
-done
-
-echo ${COMMAND}
-${COMMAND}
+`knife ssh "roles:$1 AND chef_environment:${CHEF_ENV}" -x root cssh`
 
 }
 
