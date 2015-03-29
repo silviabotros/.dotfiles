@@ -1,17 +1,11 @@
 source 'https://rubygems.org'
-
-gem 'berkshelf', '~> 3.1'
-gem 'chef', '~> 11.12'
-gem 'chefspec', '~> 3.4'
-gem 'foodcritic', '~> 3.0'
-gem 'highline', '~> 1.6' # FIXME: https://github.com/sendgrid-ops/chef-data/issues/67
+gem 'chef-zero'
+gem  'hipchat'
+gem 'collins_shell'
+gem 'dnsmadeeasy-api'
+gem 'foodcritic'
 gem 'knife-block', '~> 0.0'
-gem 'netrc', '~> 0.7'
-gem 'octokit', '~> 3.0'
-gem 'tailor', '~> 1.2'
-gem 'test-kitchen', '~> 1.1'
-gem 'thor-foodcritic', '~> 0.2'
-gem 'kitchen-vagrant', '~> 0.14.0' # FIXME: 0.15 breaks synced folders paths in kitchen.yml
+gem 'tailor'
 gem 'hipchat'
 gem 'rubocop'
 gem 'knife-spork'
@@ -20,3 +14,4 @@ gem 'guard-kitchen'
 gem 'guard-foodcritic', '>= 1.0'
 gem 'guard-rspec', '>= 4.2'
 gem 'guard-rubocop'
+
