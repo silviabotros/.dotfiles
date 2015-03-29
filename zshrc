@@ -118,7 +118,7 @@ else
   LDAP_USER=$3
 fi
 
-`knife ssh "roles:$1 AND chef_environment:${CHEF_ENV}" -x root cssh`
+`knife ssh "roles:$1 AND chef_environment:*${CHEF_ENV}*" -x root cssh`
 
 }
 
