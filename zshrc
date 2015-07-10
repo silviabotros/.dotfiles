@@ -107,7 +107,7 @@ if [ -z $1 ]; then
 fi
 
 if [ -z $2 ]; then
-  CHEF_ENV="production_sjc"
+  CHEF_ENV="production"
 else
   CHEF_ENV=$2
 fi
