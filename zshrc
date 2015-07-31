@@ -15,6 +15,13 @@ alias :q="exit"
 source $ZSH/oh-my-zsh.sh
 
 unsetopt auto_name_dirs
+# thanks @whack
+setopt append_history            # Append to history on exit, don't overwrite it.
+setopt extended_history          # Save timestamps with history
+setopt hist_no_store             # Don't store history commands
+setopt hist_save_no_dups         # Don't save duplicate history entries
+setopt hist_ignore_all_dups      # Ignore old command duplicates (in current session)
+
 
 # make and cd
 function mkcd
@@ -73,7 +80,14 @@ if [[ $? == 1 ]]; then
   ssh-add &>/dev/null
 fi
 
-#my functions for the many chef servers
+# Thanks https://github.com/csmcdermott
+# This is for the pesky known_hosts error
+function delhost() {
+  sed -i -e "$@d" ~/.ssh/known_hosts
+}
+
+
+# functions for the many chef servers
 function sjcknife() { knife "$@" -c ~/.chef/knife-sjc.rb ;}
 function 11knife() { knife "$@" -c ~/.chef/knife-11.rb ;}
 function allknife() {
@@ -100,6 +114,7 @@ function sjsensu() { ln -sf ~/.sensu/settings_sjc.rb ~/.sensu/settings.rb; sensu
 function mdsensu() { ln -sf ~/.sensu/settings_mdw.rb ~/.sensu/settings.rb; sensu "$@"; }
 
 # cssh-role
+# Thanks https://github.com/richard2191
 function cssh-role() {
 if [ -z $1 ]; then
   echo -e "Usage: cssh-role [role_name] [chef_environment] [ldap_username]\n       [chef_environment] and [ldap_username] are optional"
@@ -138,8 +153,12 @@ alias hayo='/usr/local/bin/hayo'
 alias json='python -m json.tool'
 
 source '/Users/silviabotros/.exports'
+# Adding chefdk to the path explicitly
+export PATH=/opt/chefdk/bin:$PATH
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/silviabotros/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 plugins+=(hipchat)
 eval "$(chef shell-init zsh)"
+
+source /Users/silviabotros/.iterm2_shell_integration.zsh

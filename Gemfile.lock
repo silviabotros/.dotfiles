@@ -59,6 +59,7 @@ GEM
     ipaddress (0.8.0)
     json (1.8.1)
     knife-block (0.1.1)
+    knife-lastrun (0.0.4)
     knife-spork (1.4.1)
       app_conf (>= 0.4.0)
       chef (>= 11.0.0)
@@ -141,6 +142,7 @@ DEPENDENCIES
   foodcritic
   hipchat
   knife-block
+  knife-lastrun
   knife-spork
   rubocop
   tailor

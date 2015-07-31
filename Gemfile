@@ -8,4 +8,5 @@ gem 'tailor'
 gem 'hipchat'
 gem 'rubocop'
 gem 'knife-spork'
+gem 'knife-lastrun'
 
