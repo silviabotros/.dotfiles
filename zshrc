@@ -83,28 +83,13 @@ fi
 # Thanks https://github.com/csmcdermott
 # This is for the pesky known_hosts error
 function delhost() {
-  sed -i -e "$@d" ~/.ssh/known_hosts
+  sed -i -e "$@" ~/.ssh/known_hosts
 }
 
 
 # functions for the many chef servers
 function sjcknife() { knife "$@" -c ~/.chef/knife-sjc.rb ;}
 function 11knife() { knife "$@" -c ~/.chef/knife-11.rb ;}
-function allknife() {
-  echo SJC ...
-    knife "$@" -c ~/.chef/knife-sjc.rb
-      if [ $? -ne 0 ]; then
-        echo SJC failed
-        return 1
-      fi
-      echo SoftLayer ...
-      knife "$@" -c ~/.chef/knife-sl.rb
-      if [ $? -ne 0 ]; then
-        echo SL failed
-        return 1
-      fi
-      echo done.
-}
 
 function sjcdechef() { sjcknife node delete "$@"; sjcknife client delete "$@"; }
 function 11dechef() { 11knife node delete "$@"; 11knife client delete "$@"; }
@@ -140,7 +125,7 @@ fi
 # Aliases
 alias ll='ls -alG'
 alias psgrep='ps aux | fgrep '
-alias mysql='/usr/local/bin/mysql'
+alias mysql='mycli'
 alias start_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM start"
 alias stop_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM stop"
 alias pylint="pylint --rcfile=~/pylintrc"
@@ -158,6 +143,10 @@ export PATH=/opt/chefdk/bin:$PATH
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/silviabotros/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+# MySQL prompt
+export MYSQL_PS1="[\D]\n\u@\h:\p:[\d]> "
+
 plugins+=(hipchat)
 eval "$(chef shell-init zsh)"
 
