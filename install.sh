@@ -6,25 +6,24 @@ installMenu() {
   echo "\t 2. Vim"
   echo "\t 3. Zsh"
   echo "\t 4. Tmux"
-  echo "\t 5. RVM"
-  echo "\t 6. Symlink All"
+  echo "\t 5. Symlink All"
   echo "\t 9. All"
   echo "\t q. Quit"
 }
 
 installGit() {
-  sudo apt-get install git
+  brew install git
 }
 
 installVim() {
-  sudo apt-get install vim
+  brew install vim
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   rm ~/.vimrc
   ln -s ~/.dotfiles/vimrc ~/.vimrc
 }
 
 installZsh() {
-  sudo apt-get install zsh
+  brew install zsh
   sudo chsh $USER -s /bin/zsh
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   mkdir ~/.oh-my-zsh/custom/themes
@@ -37,16 +36,11 @@ installZsh() {
 }
 
 installTmux() {
-  sudo apt-get install tmux
+  brew install tmux
   rm ~/.tmux.conf
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 }
 
-installRVM() {
-  sudo apt-get install openssl
-  curl -#L https://get.rvm.io | bash -s stable --autolibs=3
-  ln -s ~/.dotfiles/gemrc ~/.gemrc
-}
 
 symlinkAll() {
   rm ~/.vimrc
@@ -70,11 +64,10 @@ installAll() {
   installVim
   installZsh
   installTmux
-  installRVM
 }
 
-sudo apt-get update
-sudo apt-get upgrade
+brew update
+brew upgrade
 clear
 
 installMenu
@@ -87,8 +80,7 @@ do
     2) installVim;;
     3) installZsh;;
     4) installTmux;;
-    5) installRVM;;
-    6) symlinkAll;;
+    5) symlinkAll;;
     9) installAll;;
     q) break;;
   esac
