@@ -10,3 +10,8 @@ gem 'rubocop'
 gem 'knife-spork'
 gem 'knife-lastrun'
 
+
+# Gems for ruby scripts
+gem 'getopt'
+gem 'httparty'
+gem 'json'
