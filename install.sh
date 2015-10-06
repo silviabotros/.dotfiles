@@ -7,6 +7,7 @@ installMenu() {
   echo "\t 3. Zsh"
   echo "\t 4. Tmux"
   echo "\t 5. Symlink All"
+  echo "\t 6. MySQL and MyCLI"
   echo "\t 9. All"
   echo "\t q. Quit"
 }
@@ -66,6 +67,10 @@ installAll() {
   installTmux
 }
 
+installMySQL() {
+  brew install mysql
+  brew install mycli
+}
 brew update
 brew upgrade
 clear
@@ -81,6 +86,7 @@ do
     3) installZsh;;
     4) installTmux;;
     5) symlinkAll;;
+    6) installMySQL;;
     9) installAll;;
     q) break;;
   esac
