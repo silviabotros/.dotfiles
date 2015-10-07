@@ -60,11 +60,17 @@ symlinkAll() {
   ln -s ~/.dotfiles/myclirc
 }
 
+installBrews() {
+  brew install tree
+}
+
 installAll() {
   installGit
   installVim
   installZsh
   installTmux
+  installMySQL
+  installBrews
 }
 
 installMySQL() {
