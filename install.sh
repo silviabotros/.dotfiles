@@ -12,6 +12,10 @@ installMenu() {
   echo "\t q. Quit"
 }
 
+installBrew() {
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
 installGit() {
   brew install git
 }
@@ -87,6 +91,7 @@ while true
 do
   read input
   case $input in
+    0) installBrew;;
     1) installGit;;
     2) installVim;;
     3) installZsh;;
