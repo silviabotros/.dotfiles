@@ -74,7 +74,7 @@ function ssh {
 #   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 #   export PATH=$HOME/.rvm/bin:$PATH
 # fi
-
+export PATH=/usr/local/bin:$PATH
 ssh-add -l &>/dev/null
 if [[ $? == 1 ]]; then
   ssh-add &>/dev/null
@@ -86,13 +86,8 @@ function delhost() {
   sed -i -e "$@" ~/.ssh/known_hosts
 }
 
-
-# functions for the many chef servers
-function sjcknife() { knife "$@" -c ~/.chef/knife-sjc.rb ;}
-function 11knife() { knife "$@" -c ~/.chef/knife-11.rb ;}
-
-function sjcdechef() { sjcknife node delete "$@"; sjcknife client delete "$@"; }
-function 11dechef() { 11knife node delete "$@"; 11knife client delete "$@"; }
+# Make killing servers simple
+function dechef() { knife node delete "$@"; knife client delete "$@"; }
 
 # sensu-cli
 function sjsensu() { ln -sf ~/.sensu/settings_sjc.rb ~/.sensu/settings.rb; sensu "$@"; }
@@ -132,6 +127,7 @@ alias pylint="pylint --rcfile=~/pylintrc"
 alias untar='tar -xvf'
 alias killdock='killall -KILL Dock'
 alias gu='git-up'
+alias git-pr='git push -u origin HEAD'
 alias sl='/usr/local/bin/sl'
 alias ss='/usr/local/bin/ss'
 alias hayo='/usr/local/bin/hayo'
@@ -150,4 +146,4 @@ export MYSQL_PS1="[\D]\n\u@\h:\p:[\d]> "
 plugins+=(hipchat)
 eval "$(chef shell-init zsh)"
 
-source /Users/silviabotros/.iterm2_shell_integration.zsh
+#source /Users/silviabotros/.iterm2_shell_integration.zsh
