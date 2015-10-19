@@ -66,6 +66,7 @@ symlinkAll() {
 
 installBrews() {
   brew install tree
+  brew install csshx
 }
 
 installAll() {
