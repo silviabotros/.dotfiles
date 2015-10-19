@@ -55,6 +55,7 @@ symlinkAll() {
   rm ~/.oh-my-zsh/custom/plugins/eddiezane/eddiezane.plugins.zsh
   rm ~/.gemrc
   rm ~/.myclirc
+  rm ~/.ssh/config
   ln -s ~/.dotfiles/vimrc ~/.vimrc
   ln -s ~/.dotfiles/zshrc ~/.zshrc
   ln -s ~/.dotfiles/eddiezane.zsh-theme ~/.oh-my-zsh/custom/themes/eddiezane.zsh-theme
@@ -62,6 +63,7 @@ symlinkAll() {
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/gemrc ~/.gemrc
   ln -s ~/.dotfiles/myclirc
+  ln -s ~/.dotfiles/ssh-config ~/.ssh/config
 }
 
 installBrews() {
