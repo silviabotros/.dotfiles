@@ -92,6 +92,7 @@ function dechef() { knife node delete "$@"; knife client delete "$@"; }
 # sensu-cli
 function sjsensu() { ln -sf ~/.sensu/settings_sjc.rb ~/.sensu/settings.rb; sensu "$@"; }
 function mdsensu() { ln -sf ~/.sensu/settings_mdw.rb ~/.sensu/settings.rb; sensu "$@"; }
+function lasensu() { ln -sf ~/.sensu/settings_las.rb ~/.sensu/settings.rb; sensu "$@"; }
 
 # cssh-role
 # Thanks https://github.com/richard2191
@@ -145,5 +146,5 @@ export MYSQL_PS1="[\D]\n\u@\h:\p:[\d]> "
 
 plugins+=(hipchat)
 eval "$(chef shell-init zsh)"
-
+source /Users/silviabotros/.hipchat
 #source /Users/silviabotros/.iterm2_shell_integration.zsh
