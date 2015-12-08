@@ -94,6 +94,11 @@ function sjsensu() { ln -sf ~/.sensu/settings_sjc.rb ~/.sensu/settings.rb; sensu
 function mdsensu() { ln -sf ~/.sensu/settings_mdw.rb ~/.sensu/settings.rb; sensu "$@"; }
 function lasensu() { ln -sf ~/.sensu/settings_las.rb ~/.sensu/settings.rb; sensu "$@"; }
 
+# collins CLI
+function sjcollins() { collins-shell "$@" --config=~/.collins-sjc.yaml; }
+function lascollins() { collins-shell "$@" --config=~/.collins-las.yaml; }
+function mdwcollins() { collins-shell "$@" --config=~/.collins-mdw.yaml; }
+
 # cssh-role
 # Thanks https://github.com/richard2191
 function cssh-role() {
@@ -133,6 +138,7 @@ alias sl='/usr/local/bin/sl'
 alias ss='/usr/local/bin/ss'
 alias hayo='/usr/local/bin/hayo'
 alias json='python -m json.tool'
+alias vim='nvim'
 
 source '/Users/silviabotros/.exports'
 # Adding chefdk to the path explicitly
@@ -140,6 +146,9 @@ export PATH=/opt/chefdk/bin:$PATH
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/silviabotros/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+# Go code
+export GOPATH=$HOME/go
 
 # MySQL prompt
 export MYSQL_PS1="[\D]\n\u@\h:\p:[\d]> "
