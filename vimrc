@@ -39,7 +39,6 @@ Bundle 'wellle/tmux-complete.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Lokaltog/powerline'
 Plugin 'uguu-org/vim-matrix-screensaver'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 
 filetype plugin indent on
@@ -151,3 +150,6 @@ let NERDTreeShowHidden=1
 if has("autocmd")
   filetype indent on
 endif
+if !has('nvim')
+  set ttymouse=xterm2
+ endif
