@@ -69,6 +69,8 @@ symlinkAll() {
 installBrews() {
   brew install tree
   brew install csshx
+  brew install neovim/neovim/neovim
+  brew reinstall --HEAD neovim
 }
 
 installAll() {
