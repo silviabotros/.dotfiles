@@ -64,6 +64,7 @@ symlinkAll() {
   ln -s ~/.dotfiles/gemrc ~/.gemrc
   ln -s ~/.dotfiles/myclirc
   ln -s ~/.dotfiles/ssh-config ~/.ssh/config
+  ln -s ~/.dotfiles/spork-config.yml ~/.chef/spork-config.yml
 }
 
 installBrews() {

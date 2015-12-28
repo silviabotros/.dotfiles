@@ -15,7 +15,7 @@
   merge-branch = !git checkout master && git merge @{-1}
   aa = add --all
   rb = rebase
-  pr = "!_git_pr() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; _git_pr"
+  pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
   mrequest = push -u origin HEAD
   delete-unused-branches = "!f() { git branch | xargs git branch -d; }; f"
 	l = log --graph --decorate --all --max-count 5 --name-status
