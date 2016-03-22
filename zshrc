@@ -9,6 +9,9 @@ REPORTTIME=10
 
 plugins=(git eddiezane brew bundler common-aliases dircycle gitfast git-extras git-flow knife  sudo tmux zsh-syntax-highlighting tmuxinator z docker last-working-dir)
 
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 # Justin is smart
 alias :q="exit"
 
