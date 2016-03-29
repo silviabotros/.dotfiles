@@ -34,7 +34,7 @@ function mkcd
     mkdir -p "$dir" && cd "$dir";
 }
 
-function name_dat_tmux 
+function name_dat_tmux
 {
   if [ "$TMUX" ]; then
     if [ "$PWD" != "$OLDPWD" ]; then
@@ -123,7 +123,7 @@ else
   LDAP_USER=$3
 fi
 
-`knife ssh "roles:$1 AND chef_environment:*${CHEF_ENV}*" -x root cssh`
+$(knife ssh "roles:$1 AND chef_environment:*${CHEF_ENV}*" -x ${LDAP_USER} cssh)
 
 }
 
