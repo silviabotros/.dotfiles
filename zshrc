@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="theunraveler"  #avit kennethreitz mrtazz muse theunraveler wezm
+ZSH_THEME="blum"  #avit fwalch kennethreitz mrtazz muse theunraveler wezm
 
 CASE_SENSITIVE="true"
 
