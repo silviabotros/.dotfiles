@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.sendgrid.net'
 gem 'chef-zero'
 gem 'collins_shell'
 gem 'dnsmadeeasy-api'
@@ -8,7 +8,7 @@ gem 'hipchat'
 gem 'rubocop'
 gem 'knife-spork'
 gem 'knife-lastrun'
-
+gem 'knife-sendgrid'
 
 # Gems for ruby scripts
 gem 'getopt'
