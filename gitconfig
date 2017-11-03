@@ -33,6 +33,7 @@
   push-with-tags = "!git push && git push --tags"
   pull-with-submodules = "!git pull && git submodule update --init"
   rpull-with-submodules = "!git pull --rebase --stat && git submodule update --init"
+  local=log --pretty=oneline @{u}..HEAD
 
   # Credit @sethvargo
   undo = !git reset HEAD~1 --mixed
