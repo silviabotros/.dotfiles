@@ -72,6 +72,10 @@ installBrews() {
   brew install csshx
   brew install neovim/neovim/neovim
   brew reinstall --HEAD neovim
+  brew install thefuck
+  brew install myrepos
+  brew install mycli
+  brew install jq
 }
 
 installAll() {
