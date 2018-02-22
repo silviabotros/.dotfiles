@@ -2,15 +2,19 @@
 
 installMenu() {
   echo "Super Awesome Install Menu"
+  echo "\t d. Set apple defaults"
+  echo "\t 0. Install Brew"
   echo "\t 1. Git"
   echo "\t 2. Vim"
   echo "\t 3. Zsh"
   echo "\t 4. Tmux"
   echo "\t 5. Symlink All"
   echo "\t 6. MySQL and MyCLI"
-  echo "\t 9. All"
+  echo "\t 9. Do (allthethings)"
   echo "\t q. Quit"
 }
+
+SOURCE=$(pwd)
 
 installBrew() {
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -36,8 +40,6 @@ installZsh() {
   mkdir ~/.oh-my-zsh/custom/plugins/eddiezane
   rm ~/.zshrc
   ln -s ~/.dotfiles/zshrc ~/.zshrc
-  ln -s ~/.dotfiles/eddiezane.zsh-theme ~/.oh-my-zsh/custom/themes/eddiezane.zsh-theme
-  ln -s ~/.dotfiles/eddiezane.plugin.zsh ~/.oh-my-zsh/custom/plugins/eddiezane/eddiezane.plugins.zsh
 }
 
 installTmux() {
@@ -62,9 +64,9 @@ symlinkAll() {
   ln -s ~/.dotfiles/eddiezane.plugin.zsh ~/.oh-my-zsh/custom/plugins/eddiezane/eddiezane.plugins.zsh
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/gemrc ~/.gemrc
+ 
   ln -s ~/.dotfiles/myclirc
   ln -s ~/.dotfiles/ssh-config ~/.ssh/config
-  ln -s ~/.dotfiles/spork-config.yml ~/.chef/spork-config.yml
 }
 
 installBrews() {
@@ -76,9 +78,116 @@ installBrews() {
   brew install myrepos
   brew install mycli
   brew install jq
+  brew install aws-shell
+  brew install pyenv
+  brew install terraform
+  brew install mas
+  brew cask install iterm2
+  brew cask install dropbox
+  brew cask install github-desktop
+  brew cask install spotify
+  brew cask install google-chrome
+  brew cask install firefox
+
+  brew install zsh-syntax-highlighting
+
+  #Finally, cleanup
+  brew update 
+  brew upgrade
+  clear
 }
 
+setDefaults() {
+  # Thanks to John Martin for letting me steal some tips and tricks
+
+  # Set dock size
+  defaults write com.apple.dock tilesize -int 29
+  # Minimize windows into their application’s icon
+  defaults write com.apple.dock minimize-to-application -bool true
+  # Show indicator lights for open applications in the Dock
+  defaults write com.apple.dock show-process-indicators -bool true
+  # Don’t group windows by application in Mission Control
+  # (i.e. use the old Exposé behavior instead)
+  defaults write com.apple.dock expose-group-by-app -bool false
+  # Disable Dashboar
+  defaults write com.apple.dashboard mcx-disabled -bool true
+  # Don’t show Dashboard as a Space
+  defaults write com.apple.dock dashboard-in-overlay -bool true
+  # Move the dock to the right
+  defaults write com.apple.dock orientation -string right
+  # Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# Top left screen corner → Disable screen saver
+  defaults write com.apple.dock wvous-tr-corner -int 12
+  defaults write com.apple.dock wvous-br-corner -int 4
+  defaults write com.apple.dock wvous-tl-corner -int 3
+  # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+  defaults write com.apple.finder QuitMenuItem -bool true
+  # Avoid creating .DS_Store files on network or USB volumes
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+  defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+  # Show the ~/Library folder
+  chflags nohidden ~/Library
+  
+  # Automatically download apps purchased on other Macs
+  defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
+
+  # Disable hibernation (speeds up entering sleep mode)
+  sudo pmset -a hibernatemode 0
+  
+  # Increase sound quality for Bluetooth headphones/headsets
+  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
+  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
+  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
+  # Save screenshots to the desktop
+  defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+ 
+  # Enable Safari’s debug menu
+  defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+  
+  # Enable the Develop menu and the Web Inspector in Safari
+  defaults write com.apple.Safari IncludeDevelopMenu -bool true
+  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+  # Warn about fraudulent websites
+  defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+  # Update extensions automatically
+  defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
+  mas 'Airmail 3', id: 918858936
+  mas 'Fantastical 2', id: 975937182
+  mas 'Keynote', id: 409183694
+  mas 'Kindle', id: 405399194
+  mas 'Slack', id: 803453959
+  mas 'Pages', id: 409201541
+  mas 'Tweetbot', id: 557168941
+
+  killall "Safari" &> /dev/null
+  # Restart Finder for changes to take affect...
+  killall "Finder" &> /dev/null
+  #finally, kill the dock
+  killall "Dock" &> /dev/null
+}
+
+
 installAll() {
+  setDefaults
   installGit
   installVim
   installZsh
@@ -91,9 +200,6 @@ installMySQL() {
   brew install mysql
   brew install mycli
 }
-brew update
-brew upgrade
-clear
 
 installMenu
 
@@ -101,6 +207,7 @@ while true
 do
   read input
   case $input in
+    d) setDefaults;;
     0) installBrew;;
     1) installGit;;
     2) installVim;;

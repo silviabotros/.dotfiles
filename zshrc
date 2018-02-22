@@ -134,9 +134,7 @@ alias stop_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM stop"
 alias pylint="pylint --rcfile=~/pylintrc"
 alias untar='tar -xvf'
 alias killdock='killall -KILL Dock'
-alias gu='git-up'
 alias git-pr='git push -u origin HEAD'
-alias sl='/usr/local/bin/sl'
 alias ss='/usr/local/bin/ss'
 alias hayo='/usr/local/bin/hayo'
 alias json='python -m json.tool'
@@ -156,3 +154,6 @@ plugins+=(hipchat)
 eval "$(chef shell-init zsh)"
 source /Users/silviabotros/.hipchat
 #source /Users/silviabotros/.iterm2_shell_integration.zsh
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi
