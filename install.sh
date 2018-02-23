@@ -31,7 +31,7 @@ installVim() {
   brew reinstall --HEAD neovim
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   rm ~/.vimrc
-  ln -s ~/.dotfiles/vimrc ~/.vimrc
+  ln -s ~/.dotfiles/config/vimrc ~/.vimrc
   vim +PluginInstall +qall
 }
 
@@ -41,9 +41,8 @@ installZsh() {
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   mkdir ~/.oh-my-zsh/custom/themes
   mkdir ~/.oh-my-zsh/custom/plugins
-  mkdir ~/.oh-my-zsh/custom/plugins/eddiezane
   rm ~/.zshrc
-  ln -s ~/.dotfiles/zshrc ~/.zshrc
+  ln -s ~/.dotfiles/config/zshrc ~/.zshrc
 
   # Make zsh the default
   chsh -s /usr/local/bin/zsh
@@ -52,7 +51,7 @@ installZsh() {
 installTmux() {
   brew install tmux
   rm ~/.tmux.conf
-  ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+  ln -s ~/.dotfiles/config/tmux.conf ~/.tmux.conf
 }
 
 
@@ -65,15 +64,15 @@ symlinkAll() {
   rm ~/.gemrc
   rm ~/.myclirc
   rm ~/.ssh/config
-  ln -s ~/.dotfiles/vimrc ~/.vimrc
-  ln -s ~/.dotfiles/zshrc ~/.zshrc
-  ln -s ~/.dotfiles/eddiezane.zsh-theme ~/.oh-my-zsh/custom/themes/eddiezane.zsh-theme
-  ln -s ~/.dotfiles/eddiezane.plugin.zsh ~/.oh-my-zsh/custom/plugins/eddiezane/eddiezane.plugins.zsh
-  ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-  ln -s ~/.dotfiles/gemrc ~/.gemrc
+  ln -s ~/.dotfiles/config/vimrc ~/.vimrc
+  ln -s ~/.dotfiles/config/zshrc ~/.zshrc
+  ln -s ~/.dotfiles/config/eddiezane.zsh-theme ~/.oh-my-zsh/custom/themes/eddiezane.zsh-theme
+  ln -s ~/.dotfiles/config/eddiezane.plugin.zsh ~/.oh-my-zsh/custom/plugins/eddiezane/eddiezane.plugins.zsh
+  ln -s ~/.dotfiles/config/tmux.conf ~/.tmux.conf
+  ln -s ~/.dotfiles/config/gemrc ~/.gemrc
 
-  ln -s ~/.dotfiles/myclirc
-  ln -s ~/.dotfiles/ssh-config ~/.ssh/config
+  ln -s ~/.dotfiles/config/myclirc
+  ln -s ~/.dotfiles/config/ssh-config ~/.ssh/config
 }
 
 installBrews() {
@@ -175,6 +174,18 @@ setDefaults() {
 
   # Update extensions automatically
   defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
+  # Disable the “Are you sure you want to open this application?” dialog
+  defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+  # Increase sound quality for Bluetooth headphones/headsets
+  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+  # Show the full URL in the address bar (note: this still hides the scheme)
+  defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+  # Don’t display the annoying prompt when quitting iTerm
+  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
   killall "Safari" &> /dev/null
   # Restart Finder for changes to take affect...
