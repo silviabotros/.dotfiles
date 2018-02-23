@@ -67,17 +67,17 @@ function ssh {
 
 
 # Check if on Mac
-# if [[ `uname` == "Darwin" ]]; then
-#   export BROWSER=open
-#   export EDITOR=vim
-#  # source ~/.dotfiles/API_KEYS
-#   export GOPATH=~/.go
-#   export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$GOPATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools:$PATH
-#   if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# else
-#   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-#   export PATH=$HOME/.rvm/bin:$PATH
-# fi
+if [[ `uname` == "Darwin" ]]; then
+  export BROWSER=open
+  export EDITOR=nvim
+ # source ~/.dotfiles/API_KEYS
+  export GOPATH=~/.go
+  export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$GOPATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools:$PATH
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+else
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  export PATH=$HOME/.rvm/bin:$PATH
+fi
 export PATH=/usr/local/bin:$PATH
 ssh-add -l &>/dev/null
 if [[ $? == 1 ]]; then
@@ -156,4 +156,6 @@ source /Users/silviabotros/.hipchat
 #source /Users/silviabotros/.iterm2_shell_integration.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi
+if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)" fi
+
+

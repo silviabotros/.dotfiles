@@ -6,7 +6,6 @@ gem 'foodcritic'
 gem 'tailor'
 gem 'hipchat'
 gem 'rubocop'
-gem 'knife-spork'
 gem 'knife-lastrun'
 gem 'knife-sendgrid'
 
