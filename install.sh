@@ -2,7 +2,9 @@
 
 installMenu() {
   echo "Super Awesome Install Menu"
+  echo "\t a. Install Mac App Store apps"
   echo "\t d. Set apple defaults"
+  echo "\t b. Install my brew formulas"
   echo "\t 0. Install Brew"
   echo "\t 1. Git"
   echo "\t 2. Vim"
@@ -25,10 +27,12 @@ installGit() {
 }
 
 installVim() {
-  brew install vim
+  brew install neovim/neovim/neovim
+  brew reinstall --HEAD neovim
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   rm ~/.vimrc
   ln -s ~/.dotfiles/vimrc ~/.vimrc
+  vim +PluginInstall +qall
 }
 
 installZsh() {
@@ -40,6 +44,9 @@ installZsh() {
   mkdir ~/.oh-my-zsh/custom/plugins/eddiezane
   rm ~/.zshrc
   ln -s ~/.dotfiles/zshrc ~/.zshrc
+
+  # Make zsh the default
+  chsh -s /usr/local/bin/zsh
 }
 
 installTmux() {
@@ -64,7 +71,7 @@ symlinkAll() {
   ln -s ~/.dotfiles/eddiezane.plugin.zsh ~/.oh-my-zsh/custom/plugins/eddiezane/eddiezane.plugins.zsh
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/gemrc ~/.gemrc
- 
+
   ln -s ~/.dotfiles/myclirc
   ln -s ~/.dotfiles/ssh-config ~/.ssh/config
 }
@@ -92,14 +99,13 @@ installBrews() {
   brew install zsh-syntax-highlighting
 
   #Finally, cleanup
-  brew update 
+  brew update
   brew upgrade
   clear
 }
 
 setDefaults() {
   # Thanks to John Martin for letting me steal some tips and tricks
-
   # Set dock size
   defaults write com.apple.dock tilesize -int 29
   # Minimize windows into their application’s icon
@@ -138,13 +144,13 @@ setDefaults() {
   defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
   # Show the ~/Library folder
   chflags nohidden ~/Library
-  
+
   # Automatically download apps purchased on other Macs
   defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
 
   # Disable hibernation (speeds up entering sleep mode)
   sudo pmset -a hibernatemode 0
-  
+
   # Increase sound quality for Bluetooth headphones/headsets
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
@@ -155,10 +161,10 @@ setDefaults() {
   defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
   # Save screenshots to the desktop
   defaults write com.apple.screencapture location -string "${HOME}/Desktop"
- 
+
   # Enable Safari’s debug menu
   defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-  
+
   # Enable the Develop menu and the Web Inspector in Safari
   defaults write com.apple.Safari IncludeDevelopMenu -bool true
   defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
@@ -170,14 +176,6 @@ setDefaults() {
   # Update extensions automatically
   defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
-  mas 'Airmail 3', id: 918858936
-  mas 'Fantastical 2', id: 975937182
-  mas 'Keynote', id: 409183694
-  mas 'Kindle', id: 405399194
-  mas 'Slack', id: 803453959
-  mas 'Pages', id: 409201541
-  mas 'Tweetbot', id: 557168941
-
   killall "Safari" &> /dev/null
   # Restart Finder for changes to take affect...
   killall "Finder" &> /dev/null
@@ -185,20 +183,40 @@ setDefaults() {
   killall "Dock" &> /dev/null
 }
 
-
-installAll() {
-  setDefaults
-  installGit
-  installVim
-  installZsh
-  installTmux
-  installMySQL
-  installBrews
+installApps(){
+  brew install mas
+  # Airmail 3
+  mas install 918858936
+  # Fantastical 2
+  mas install 975937182
+  # Keynote
+  mas install 409183694
+  # Kindle
+  mas install 405399194
+  # Slack
+  mas install 803453959
+  # Pages
+  mas install 409201541
+  # Tweetbot
+  mas 557168941
 }
 
 installMySQL() {
   brew install mysql
   brew install mycli
+}
+
+installAll() {
+  installBrew
+  installBrews
+  installApps
+  setDefaults
+  installGit
+  installVim
+  installZsh
+  installTmux
+  symlinkAll
+  installMySQL
 }
 
 installMenu
@@ -207,6 +225,8 @@ while true
 do
   read input
   case $input in
+    a) installApps;;
+    b) installBrews;;
     d) setDefaults;;
     0) installBrew;;
     1) installGit;;
@@ -220,4 +240,3 @@ do
   esac
   installMenu
 done
-
