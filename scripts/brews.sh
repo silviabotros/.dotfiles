@@ -19,8 +19,10 @@ brew cask install spotify
 brew cask install google-chrome
 brew cask install firefox
 brew install brandt/personal/openconnect-keychain
-
 brew install zsh-syntax-highlighting
+
+brew tap caskroom/cask
+brew cask install atom
 
 #Finally, cleanup
 brew update
