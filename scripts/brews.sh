@@ -18,6 +18,7 @@ brew cask install github-desktop
 brew cask install spotify
 brew cask install google-chrome
 brew cask install firefox
+brew install brandt/personal/openconnect-keychain
 
 brew install zsh-syntax-highlighting
 
