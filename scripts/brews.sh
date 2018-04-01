@@ -12,6 +12,7 @@ brew install aws-shell
 brew install pyenv
 brew install terraform
 brew install mas
+brew install packer
 brew cask install iterm2
 brew cask install dropbox
 brew cask install github-desktop
