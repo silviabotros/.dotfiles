@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# use ssh instead of HTTPS for sendgrid repo cloning
+git config --global url.ssh://git@github.com/sendgrid.insteadOf https://github.com/sendgrid
+
 brew install tree
 brew install csshx
 brew install neovim/neovim/neovim
@@ -19,6 +22,10 @@ brew cask install spotify
 brew cask install google-chrome
 brew cask install firefox
 
+# Tap the sendgrid cask
+brew tap --full sendgrid-ops/workstation
+
+brew install aws-okta
 brew install zsh-syntax-highlighting
 
 #Finally, cleanup
