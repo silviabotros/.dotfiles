@@ -15,18 +15,21 @@ brew install aws-shell
 brew install pyenv
 brew install terraform
 brew install mas
+brew install packer
 brew cask install iterm2
 brew cask install dropbox
 brew cask install github-desktop
 brew cask install spotify
 brew cask install google-chrome
 brew cask install firefox
-
-# Tap the sendgrid cask
-brew tap --full sendgrid-ops/workstation
-
-brew install aws-okta
+brew install brandt/personal/openconnect-keychain
 brew install zsh-syntax-highlighting
+brew install gron
+brew install hub
+brew install gource
+
+brew tap caskroom/cask
+brew cask install atom
 
 #Finally, cleanup
 brew update

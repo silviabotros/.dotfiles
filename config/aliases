@@ -1,0 +1,14 @@
+# Aliases
+alias ll='ls -alG'
+alias psgrep='ps aux | fgrep '
+alias mysql='mycli'
+alias start_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM start"
+alias stop_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM stop"
+alias pylint="pylint --rcfile=~/pylintrc"
+alias untar='tar -xvf'
+alias killdock='killall -KILL Dock'
+alias git-pr='git push -u origin HEAD'
+alias ss='/usr/local/bin/ss'
+alias hayo='/usr/local/bin/hayo'
+alias json='python -m json.tool'
+alias vim='nvim'

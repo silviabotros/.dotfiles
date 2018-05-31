@@ -8,7 +8,7 @@ DISABLE_AUTO_TITLE="true"
 #ZSH_TMUX_AUTOSTART="true"
 REPORTTIME=10
 
-plugins=(git eddiezane brew bundler common-aliases dircycle gitfast git-extras git-flow  sudo tmux zsh-syntax-highlighting tmuxinator z docker last-working-dir)
+plugins=(git eddiezane brew bundler common-aliases dircycle gitfast git-extras git-flow  sudo tmux zsh-syntax-highlighting tmuxinator z docker last-working-dir hipchat)
 
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
@@ -125,21 +125,7 @@ $(knife ssh "roles:$1 AND chef_environment:*${CHEF_ENV}*" -x ${LDAP_USER} cssh)
 
 }
 
-# Aliases
-alias ll='ls -alG'
-alias psgrep='ps aux | fgrep '
-alias mysql='mycli'
-alias start_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM start"
-alias stop_mysql="/Library/StartupItems/MySQLCOM/MySQLCOM stop"
-alias pylint="pylint --rcfile=~/pylintrc"
-alias untar='tar -xvf'
-alias killdock='killall -KILL Dock'
-alias git-pr='git push -u origin HEAD'
-alias ss='/usr/local/bin/ss'
-alias hayo='/usr/local/bin/hayo'
-alias json='python -m json.tool'
-alias vim='nvim'
-
+source '/Users/silviabotros/.aliases'
 source '/Users/silviabotros/.exports'
 # Adding chefdk to the path explicitly
 export PATH=/opt/chefdk/bin:$PATH
@@ -150,10 +136,9 @@ export GOPATH=$HOME/go
 # MySQL prompt
 export MYSQL_PS1="[\D]\n\u@\h:\p:[\d]> "
 
-plugins+=(hipchat)
 eval "$(chef shell-init zsh)"
 source /Users/silviabotros/.hipchat
 #source /Users/silviabotros/.iterm2_shell_integration.zsh
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then  eval "$(pyenv init -)" fi
