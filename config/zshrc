@@ -90,6 +90,11 @@ function delhost() {
   sed -i -e "$@" ~/.ssh/known_hosts
 }
 
+# Update local temporary AWS creds
+function aws_cred() {
+  aws-okta exec "$@" -- env | grep AWS |  sed  -e "s/^/export /g" > /tmp/env-aws; chmod +x /tmp/env-aws; /tmp/env-aws
+}
+
 # Make killing servers simple
 function dechef() { knife node delete "$@"; knife client delete "$@"; }
 
