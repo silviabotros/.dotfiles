@@ -32,6 +32,8 @@ installVim() {
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   rm ~/.vimrc
   ln -s ~/.dotfiles/config/vimrc ~/.vimrc
+  mkdir ~/.config/nvim
+  ln -s ~/.dotfiles/config/init.vim ~/.config/nvim/init.vim
   vim +PluginInstall +qall
 }
 

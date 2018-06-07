@@ -152,4 +152,4 @@ if has("autocmd")
 endif
 if !has('nvim')
   set ttymouse=xterm2
- endif
+endif
