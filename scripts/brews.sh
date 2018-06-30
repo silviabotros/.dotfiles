@@ -4,6 +4,7 @@
 git config --global url.ssh://git@github.com/sendgrid.insteadOf https://github.com/sendgrid
 
 brew install tree
+brew install free
 brew install csshx
 brew install neovim/neovim/neovim
 brew reinstall --HEAD neovim
