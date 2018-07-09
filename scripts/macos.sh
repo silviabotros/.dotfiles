@@ -66,6 +66,11 @@ defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editabl
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
+# Bluetooth codec cus life is too short for stuttering audio
+sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true
+sudo launchctl stop com.apple.blued
+sudo launchctl start com.apple.blued
+
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
