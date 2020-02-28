@@ -4,7 +4,7 @@
 git config --global url.ssh://git@github.com/sendgrid.insteadOf https://github.com/sendgrid
 
 #Taps
-tap 'caskroom/cask'
+brew tap 'caskroom/cask'
 
 brew install tree
 brew install free
@@ -33,6 +33,7 @@ brew install hub
 brew install gource
 
 brew tap caskroom/cask
+brew tap homebrew/cask-versions
 
 # Apps
 brew cask install bartender
