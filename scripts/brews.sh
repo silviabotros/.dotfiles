@@ -3,6 +3,9 @@
 # use ssh instead of HTTPS for sendgrid repo cloning
 git config --global url.ssh://git@github.com/sendgrid.insteadOf https://github.com/sendgrid
 
+#Taps
+tap 'caskroom/cask'
+
 brew install tree
 brew install free
 brew install csshx
@@ -30,6 +33,16 @@ brew install hub
 brew install gource
 
 brew tap caskroom/cask
+
+# Apps
+brew cask install bartender
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install spotify
+brew cask install alfred
+brew cask install spectacle
+brew cask install rocket
+
 brew cask install atom
 
 #Finally, cleanup

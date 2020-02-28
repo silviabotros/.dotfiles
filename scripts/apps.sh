@@ -1,7 +1,7 @@
 #!/bin/sh
 brew install mas
 # Airmail 3
-mas install 918858936
+#mas install 918858936
 # Fantastical 2
 mas install 975937182
 # Keynote
@@ -13,7 +13,13 @@ mas install 803453959
 # Pages
 mas install 409201541
 # Tweetbot
-mas 557168941
+mas install 557168941
+# Ulysses
+mas install 1225570693
+# Things 
+mas install 904280696
+# 1Password 7
+mas install 1333542190
 
 # Install the apm packages
 # On first run, this will take you to the browser to get a token
