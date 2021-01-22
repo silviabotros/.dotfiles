@@ -1,7 +1,5 @@
 #!/bin/sh
 brew install mas
-# Airmail 3
-#mas install 918858936
 # Fantastical 2
 mas install 975937182
 # Keynote
