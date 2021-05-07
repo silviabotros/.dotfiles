@@ -8,7 +8,7 @@ DISABLE_AUTO_TITLE="true"
 #ZSH_TMUX_AUTOSTART="true"
 REPORTTIME=10
 
-plugins=(git eddiezane brew bundler common-aliases dircycle gitfast git-extras git-flow sudo zsh-syntax-highlighting z docker last-working-dir hipchat)
+plugins=(git brew bundler common-aliases dircycle gitfast git-extras git-flow sudo  z docker last-working-dir)
 
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
@@ -130,7 +130,7 @@ $(knife ssh "roles:$1 AND chef_environment:*${CHEF_ENV}*" -x ${LDAP_USER} cssh)
 
 }
 
-source '/Users/silviabotros/.exports'
+#source '/Users/silviabotros/.exports'
 source '/Users/silviabotros/.aliases'
 # Adding chefdk to the path explicitly
 export PATH=/opt/chefdk/bin:$PATH
@@ -141,8 +141,10 @@ export GOPATH=$HOME/go
 # MySQL prompt
 export MYSQL_PS1="[\D]\n\u@\h:\p:[\d]> "
 
-eval "$(chef shell-init zsh)"
+#eval "$(chef shell-init zsh)"
 source /Users/silviabotros/.iterm2_shell_integration.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then  eval "$(pyenv init -)" fi
+eval "$(starship init zsh)"
+
