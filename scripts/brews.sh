@@ -20,8 +20,6 @@ brew install mas
 brew install --cask iterm2
 brew install --cask dropbox
 brew install --cask github-desktop
-brew install --cask spotify
-brew install --cask google-chrome
 brew install --cask firefox
 brew install zsh-syntax-highlighting
 brew install gron
@@ -32,7 +30,6 @@ brew tap homebrew/cask-versions
 
 # Apps
 brew install --cask bartender
-brew install --cask dropbox
 brew install --cask google-chrome
 brew install --cask spotify
 brew install --cask alfred
