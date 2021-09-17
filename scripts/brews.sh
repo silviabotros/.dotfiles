@@ -17,12 +17,12 @@ brew install jq
 brew install aws-shell
 brew install pyenv
 brew install mas
-brew cask install iterm2
-brew cask install dropbox
-brew cask install github-desktop
-brew cask install spotify
-brew cask install google-chrome
-brew cask install firefox
+brew install --cask iterm2
+brew install --cask dropbox
+brew install --cask github-desktop
+brew install --cask spotify
+brew install --cask google-chrome
+brew install --cask firefox
 brew install zsh-syntax-highlighting
 brew install gron
 brew install gource
@@ -31,13 +31,13 @@ brew tap caskroom/cask
 brew tap homebrew/cask-versions
 
 # Apps
-brew cask install bartender
-brew cask install dropbox
-brew cask install google-chrome
-brew cask install spotify
-brew cask install alfred
-brew cask install spectacle
-brew cask install rocket
+brew install --cask bartender
+brew install --cask dropbox
+brew install --cask google-chrome
+brew install --cask spotify
+brew install --cask alfred
+brew install --cask spectacle
+brew install --cask rocket
 
 
 #Finally, cleanup
