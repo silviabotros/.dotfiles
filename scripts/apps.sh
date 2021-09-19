@@ -18,6 +18,8 @@ mas install 1225570693
 mas install 904280696
 # EasyRes
 mas install 688211836
+#1Blocker
+mas install 1365531024
 
 # Install the apm packages
 # On first run, this will take you to the browser to get a token
