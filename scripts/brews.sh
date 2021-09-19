@@ -35,6 +35,8 @@ brew install --cask iterm2
 brew install --cask dropbox
 brew install --cask github-desktop
 brew install --cask firefox
+brew install karabiner-elements
+brew install dropshare
 
 
 #Finally, cleanup
