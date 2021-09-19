@@ -17,10 +17,6 @@ brew install jq
 brew install aws-shell
 brew install pyenv
 brew install mas
-brew install --cask iterm2
-brew install --cask dropbox
-brew install --cask github-desktop
-brew install --cask firefox
 brew install zsh-syntax-highlighting
 brew install gron
 brew install gource
@@ -33,8 +29,12 @@ brew install --cask bartender
 brew install --cask google-chrome
 brew install --cask spotify
 brew install --cask alfred
-brew install --cask spectacle
+brew install --cask rectangle
 brew install --cask rocket
+brew install --cask iterm2
+brew install --cask dropbox
+brew install --cask github-desktop
+brew install --cask firefox
 
 
 #Finally, cleanup

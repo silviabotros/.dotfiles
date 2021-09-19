@@ -16,8 +16,6 @@ mas install 557168941
 mas install 1225570693
 # Things 
 mas install 904280696
-# 1Password 7
-mas install 1333542190
 
 # Install the apm packages
 # On first run, this will take you to the browser to get a token

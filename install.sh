@@ -61,7 +61,7 @@ setDefaults() {
 }
 
 installApps(){
-  ./scripts/apps.sh
+  ./scripts/apps.sh 
 }
 
 installMySQL() {
