@@ -14,7 +14,6 @@ brew install thefuck
 brew install myrepos
 brew install mycli
 brew install jq
-brew install aws-shell
 brew install pyenv
 brew install mas
 brew install zsh-syntax-highlighting
@@ -32,8 +31,6 @@ brew install --cask alfred
 brew install --cask rectangle
 brew install --cask rocket
 brew install --cask iterm2
-brew install --cask dropbox
-brew install --cask github-desktop
 brew install --cask firefox
 brew install karabiner-elements
 brew install dropshare
