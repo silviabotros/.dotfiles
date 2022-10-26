@@ -1,7 +1,7 @@
 #!/bin/sh
-brew install zsh
+/opt/homebrew/bin/brew install zsh
 sudo chsh $USER -s /bin/zsh
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir ~/.oh-my-zsh/custom/themes
 mkdir ~/.oh-my-zsh/custom/plugins
 rm ~/.zshrc

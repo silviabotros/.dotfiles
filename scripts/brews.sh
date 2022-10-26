@@ -1,42 +1,39 @@
 #!/bin/sh
 
-# use ssh instead of HTTPS for sendgrid repo cloning
-git config --global url.ssh://git@github.com/sendgrid.insteadOf https://github.com/sendgrid
 
 #Taps
-brew tap 'caskroom/cask'
+/opt/homebrew/bin/brew tap 'caskroom/cask'
 
-brew install tree
-brew install free
-brew install neovim/neovim/neovim
-brew reinstall --HEAD neovim
-brew install thefuck
-brew install myrepos
-brew install mycli
-brew install jq
-brew install pyenv
-brew install mas
-brew install zsh-syntax-highlighting
-brew install gron
-brew install gource
+/opt/homebrew/bin/brew install tree
+/opt/homebrew/bin/brew install free
+/opt/homebrew/bin/brew install neovim/neovim/neovim
+/opt/homebrew/bin/brew reinstall --HEAD neovim
+/opt/homebrew/bin/brew install thefuck
+/opt/homebrew/bin/brew install myrepos
+/opt/homebrew/bin/brew install mycli
+/opt/homebrew/bin/brew install jq
+/opt/homebrew/bin/brew install pyenv
+/opt/homebrew/bin/brew install mas
+/opt/homebrew/bin/brew install zsh-syntax-highlighting
+/opt/homebrew/bin/brew install gron
+/opt/homebrew/bin/brew install gource
 
-brew tap caskroom/cask
-brew tap homebrew/cask-versions
+/opt/homebrew/bin/brew tap caskroom/cask
+/opt/homebrew/bin/brew tap homebrew/cask-versions
 
 # Apps
-brew install --cask bartender
-brew install --cask google-chrome
-brew install --cask spotify
-brew install --cask alfred
-brew install --cask rectangle
-brew install --cask rocket
-brew install --cask iterm2
-brew install --cask firefox
-brew install karabiner-elements
-brew install dropshare
+/opt/homebrew/bin/brew install --cask bartender
+/opt/homebrew/bin/brew install --cask google-chrome
+/opt/homebrew/bin/brew install --cask alfred
+/opt/homebrew/bin/brew install --cask rectangle
+/opt/homebrew/bin/brew install --cask rocket
+/opt/homebrew/bin/brew install --cask iterm2
+/opt/homebrew/bin/brew install --cask firefox
+/opt/homebrew/bin/brew install karabiner-elements
+/opt/homebrew/bin/brew install dropshare
 
 
 #Finally, cleanup
-brew update
-brew upgrade
+/opt/homebrew/bin/brew update
+/opt/homebrew/bin/brew upgrade
 clear

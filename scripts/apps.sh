@@ -7,11 +7,9 @@ mas install 409183694
 # Kindle
 mas install 405399194
 # Slack
-mas install 803453959
+#mas install 803453959
 # Pages
 mas install 409201541
-# Tweetbot
-mas install 557168941
 # Ulysses
 mas install 1225570693
 # Things 
