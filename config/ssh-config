@@ -3,12 +3,5 @@ Host *
   ForwardAgent yes
   AddKeysToAgent yes
 
-Host jump
-  Hostname jump.sendgrid.net
-  User silvia
-  ForwardAgent yes
-
-Host evprod
-  User ec2-user
-  ForwardAgent yes
-  ProxyCommand ssh -q jump nc 13.58.72.218 22
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
