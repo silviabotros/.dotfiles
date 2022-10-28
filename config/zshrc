@@ -95,45 +95,14 @@ function aws_cred() {
   aws-okta exec "$@" -- env | grep AWS |  sed  -e "s/^/export /g" > /tmp/env-aws; chmod +x /tmp/env-aws; /tmp/env-aws
 }
 
-# Make killing servers simple
-function dechef() { knife node delete "$@"; knife client delete "$@"; }
-
-# sensu-cli
-function mdsensu() { ln -sf ~/.sensu/settings_mdw.rb ~/.sensu/settings.rb; sensu "$@"; }
-function lasensu() { ln -sf ~/.sensu/settings_las.rb ~/.sensu/settings.rb; sensu "$@"; }
-
-# collins CLI
-function lascollins() { collins-shell "$@" --config=~/.collins-las.yaml; }
-function mdwcollins() { collins-shell "$@" --config=~/.collins-mdw.yaml; }
-
-# cssh-role
-# Thanks https://github.com/richard2191
-function cssh-role() {
-if [ -z $1 ]; then
-  echo -e "Usage: cssh-role [role_name] [chef_environment] [ldap_username]\n       [chef_environment] and [ldap_username] are optional"
-  return 0
-fi
-
-if [ -z $2 ]; then
-  CHEF_ENV="production"
-else
-  CHEF_ENV=$2
-fi
-
 if [ -z $3 ]; then
   LDAP_USER="silvia"
 else
   LDAP_USER=$3
 fi
 
-$(knife ssh "roles:$1 AND chef_environment:*${CHEF_ENV}*" -x ${LDAP_USER} cssh)
-
-}
-
 #source '/Users/silviabotros/.exports'
 source '/Users/silviabotros/.aliases'
-# Adding chefdk to the path explicitly
-export PATH=/opt/chefdk/bin:$PATH
 
 # Go code
 export GOPATH=$HOME/go
@@ -148,3 +117,5 @@ export PATH="$PYENV_ROOT/shims:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then  eval "$(pyenv init -)" fi
 eval "$(starship init zsh)"
 
+#add brew to PATH because..I dunno
+export PATH=/opt/homebrew/bin:$PATH
