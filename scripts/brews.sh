@@ -17,7 +17,7 @@
 /opt/homebrew/bin/brew install zsh-syntax-highlighting
 /opt/homebrew/bin/brew install gron
 /opt/homebrew/bin/brew install gource
-
+/opt/homebrew/bin/brew install dog
 /opt/homebrew/bin/brew tap caskroom/cask
 /opt/homebrew/bin/brew tap homebrew/cask-versions
 
