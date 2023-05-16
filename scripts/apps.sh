@@ -10,8 +10,6 @@ mas install 405399194
 #mas install 803453959
 # Pages
 mas install 409201541
-# Ulysses
-mas install 1225570693
 # Things 
 mas install 904280696
 # EasyRes
