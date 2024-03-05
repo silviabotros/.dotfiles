@@ -76,7 +76,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/opt/homebrew/bin:$PATH"
 # run all the aliases
-ln -s $ZSH/.dotfiles/config/aliases $ZSH/.aliases
 source $HOME/.aliases
 # User configuration
 
@@ -105,4 +104,4 @@ source $HOME/.aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Read secrets from file NOT in source control
-source $HOME/.secrets
+source $HOME/.env
