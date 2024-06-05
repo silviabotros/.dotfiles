@@ -22,7 +22,7 @@
 /opt/homebrew/bin/brew tap homebrew/cask-versions
 
 # Apps
-/opt/homebrew/bin/brew install --cask bartender
+/opt/homebrew/bin/brew install jordanbaird-ice
 /opt/homebrew/bin/brew install --cask google-chrome
 /opt/homebrew/bin/brew install --cask alfred
 /opt/homebrew/bin/brew install --cask moom
