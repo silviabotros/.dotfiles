@@ -32,6 +32,7 @@
 /opt/homebrew/bin/brew install --cask firefox
 /opt/homebrew/bin/brew install karabiner-elements
 /opt/homebrew/bin/brew install dropshare
+/opt/homebrew/bin/brew install gh
 
 
 #Finally, cleanup
