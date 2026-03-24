@@ -11,7 +11,6 @@ installMenu() {
   echo "\t 3. Zsh"
   echo "\t 4. Tmux"
   echo "\t 5. Symlink All"
-  echo "\t 6. MySQL and MyCLI"
   echo "\t 9. Do (allthethings)"
   echo "\t q. Quit"
 }
@@ -65,11 +64,6 @@ setDefaults() {
 installApps(){
   ./scripts/apps.sh 
   ./config/copy_config_files.sh
-}
-
-installMySQL() {
-  brew install mysql
-  brew install mycli
 }
 
 installAll() {

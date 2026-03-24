@@ -33,6 +33,10 @@
 /opt/homebrew/bin/brew install karabiner-elements
 /opt/homebrew/bin/brew install dropshare
 /opt/homebrew/bin/brew install gh
+/opt/homebrew/bin/brew install claude-code
+# config claude
+cp /Users/silviabotros/repos/.dotfiles/config/CLAUDE.md ~/.claude/CLAUDE.md
+
 
 
 #Finally, cleanup
