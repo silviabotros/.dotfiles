@@ -16,6 +16,8 @@ mas install 904280696
 mas install 1365531024
 # Code
 mas install 1438243180
+# moom
+mas install 419330170
 # Install the apm packages
 # On first run, this will take you to the browser to get a token
 apm stars --install
