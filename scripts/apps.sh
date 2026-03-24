@@ -12,11 +12,10 @@ mas install 405399194
 mas install 409201541
 # Things 
 mas install 904280696
-# EasyRes
-mas install 688211836
 #1Blocker
 mas install 1365531024
-
+# Code
+mas install 1438243180
 # Install the apm packages
 # On first run, this will take you to the browser to get a token
 apm stars --install
