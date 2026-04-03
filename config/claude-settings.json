@@ -1,0 +1,32 @@
+{
+  "model": "claude-opus-4-6",
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  },
+  "spinnerVerbs": {
+    "mode": "append",
+    "verbs": [
+      "Vacuuming",
+      "Reindexing",
+      "Analyzing",
+      "Vacuuming tables",
+      "Running EXPLAIN",
+      "Checking bloat",
+      "Killing long queries",
+      "Tuning autovacuum",
+      "Rotating WAL",
+      "Checking replication lag",
+      "Promoting standby",
+      "Running CHECKPOINT",
+      "Defragmenting indexes",
+      "Updating statistics",
+      "Flushing dirty pages",
+      "Waiting on locks",
+      "Checking pg_stat_activity",
+      "Rebuilding indexes",
+      "Archiving WAL segments",
+      "Compacting tablespace"
+    ]
+  }
+}

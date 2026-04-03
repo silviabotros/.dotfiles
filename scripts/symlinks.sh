@@ -19,3 +19,4 @@ ln -s "$SOURCE"/config/gemrc ~/.gemrc
 
 ln -s "$SOURCE"/config/myclirc ~/.myclirc
 ln -s "$SOURCE"/config/ssh-config ~/.ssh/config
+ln -s "$SOURCE"/config/claude-settings.json ~/.claude/settings.json
