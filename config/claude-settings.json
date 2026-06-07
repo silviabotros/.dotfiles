@@ -1,8 +1,16 @@
 {
-  "model": "claude-opus-4-6",
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true
+    "code-review@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    }
   },
   "spinnerVerbs": {
     "mode": "append",
