@@ -12,6 +12,7 @@
 /opt/homebrew/bin/brew install myrepos
 /opt/homebrew/bin/brew install mycli
 /opt/homebrew/bin/brew install jq
+/opt/homebrew/bin/brew install z
 /opt/homebrew/bin/brew install pyenv
 /opt/homebrew/bin/brew install mas
 /opt/homebrew/bin/brew install zsh-syntax-highlighting
