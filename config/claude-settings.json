@@ -1,4 +1,5 @@
 {
+  "model": "opus",
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
@@ -36,5 +37,7 @@
       "Archiving WAL segments",
       "Compacting tablespace"
     ]
-  }
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "tui": "fullscreen"
 }

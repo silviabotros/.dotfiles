@@ -74,7 +74,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/opt/homebrew/bin:$PATH"
 # run all the aliases
 source $HOME/.aliases
 
@@ -106,6 +105,6 @@ source $HOME/.aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-# Read secrets from file NOT in source control
-source $HOME/.env
+
+# Load z (directory jumper) from Homebrew
+. /opt/homebrew/etc/profile.d/z.sh
