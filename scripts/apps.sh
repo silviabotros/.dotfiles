@@ -8,6 +8,12 @@ mas install 409183694
 #mas install 803453959
 # Pages
 mas install 409201541
+# Numbers
+mas install 361304891
+# GarageBand
+mas install 682658836
+# iMovie
+mas install 408981434
 # Things
 mas install 904280696
 #1Blocker
