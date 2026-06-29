@@ -5,7 +5,6 @@
 /opt/homebrew/bin/brew tap 'caskroom/cask'
 
 /opt/homebrew/bin/brew install tree
-/opt/homebrew/bin/brew install free
 /opt/homebrew/bin/brew install neovim/neovim/neovim
 /opt/homebrew/bin/brew reinstall --HEAD neovim
 /opt/homebrew/bin/brew install thefuck
@@ -18,7 +17,8 @@
 /opt/homebrew/bin/brew install zsh-syntax-highlighting
 /opt/homebrew/bin/brew install gron
 /opt/homebrew/bin/brew install gource
-/opt/homebrew/bin/brew install dog
+/opt/homebrew/bin/brew install docker
+/opt/homebrew/bin/brew install uv
 /opt/homebrew/bin/brew tap caskroom/cask
 /opt/homebrew/bin/brew tap homebrew/cask-versions
 

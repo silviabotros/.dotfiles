@@ -4,20 +4,20 @@ brew install mas
 mas install 975937182
 # Keynote
 mas install 409183694
-# Kindle
-mas install 405399194
 # Slack
 #mas install 803453959
 # Pages
 mas install 409201541
-# Things 
+# Things
 mas install 904280696
 #1Blocker
 mas install 1365531024
-# Code
+# Dark Reader for Safari
 mas install 1438243180
-# moom
-mas install 419330170
+# 1Password for Safari
+mas install 1569813296
+# Xcode
+mas install 497799835
 # Install the apm packages
 # On first run, this will take you to the browser to get a token
 apm stars --install
