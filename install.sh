@@ -12,13 +12,13 @@ installMenu() {
   echo "\t 4. Tmux"
   echo "\t 5. Symlink All"
   echo "\t 9. Do (allthethings)"
+  echo "\t c. Cleanup dead symlinks and dropped packages"
   echo "\t q. Quit"
 }
 
 SOURCE=$(pwd)
 
 installBrew() {
-#  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 }
@@ -28,8 +28,7 @@ installGit() {
 }
 
 installVim() {
-  brew install neovim/neovim/neovim
-  brew reinstall --HEAD neovim
+  brew install neovim
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   rm ~/.vimrc
   ln -s ~/.dotfiles/config/vimrc ~/.vimrc
@@ -44,6 +43,7 @@ installZsh() {
 
 installTmux() {
   brew install tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   rm ~/.tmux.conf
   ln -s ~/.dotfiles/config/tmux.conf ~/.tmux.conf
 }
@@ -51,6 +51,10 @@ installTmux() {
 
 symlinkAll() {
   ./scripts/symlinks.sh
+}
+
+cleanup() {
+  ./scripts/cleanup.sh
 }
 
 installBrews() {
@@ -76,7 +80,6 @@ installAll() {
   installZsh
   installTmux
   symlinkAll
-  installMySQL
 }
 
 installMenu
@@ -94,8 +97,8 @@ do
     3) installZsh;;
     4) installTmux;;
     5) symlinkAll;;
-    6) installMySQL;;
     9) installAll;;
+    c) cleanup;;
     q) break;;
   esac
   installMenu

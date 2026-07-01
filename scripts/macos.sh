@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Close any open System Preferences panes, to prevent them from overriding
+# Close any open System Settings panes, to prevent them from overriding
 # settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+osascript -e 'tell application "System Settings" to quit'
 # Ask for the administrator password upfront
 sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
@@ -22,10 +22,6 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Don’t group windows by application in Mission Control
 # (i.e. use the old Exposé behavior instead)
 defaults write com.apple.dock expose-group-by-app -bool false
-# Disable Dashboar
-defaults write com.apple.dashboard mcx-disabled -bool true
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
 # Move the dock to the right
 defaults write com.apple.dock orientation -string right
 # Hot corners
@@ -36,13 +32,14 @@ defaults write com.apple.dock orientation -string right
 #  4: Desktop
 #  5: Start screen saver
 #  6: Disable screen saver
-#  7: Dashboard
 # 10: Put display to sleep
-# 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → Disable screen saver
+# 13: Lock Screen
+# Top right screen corner → Notification Center
 defaults write com.apple.dock wvous-tr-corner -int 12
+# Bottom right screen corner → Desktop
 defaults write com.apple.dock wvous-br-corner -int 4
+# Top left screen corner → Application windows
 defaults write com.apple.dock wvous-tl-corner -int 3
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -52,24 +49,8 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
-# Automatically download apps purchased on other Macs
+# Automatically install system data files and security updates
 defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
-
-# Disable hibernation (speeds up entering sleep mode)
-sudo pmset -a hibernatemode 0
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
-# Bluetooth codec cus life is too short for stuttering audio
-sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true
-sudo launchctl stop com.apple.blued
-sudo launchctl start com.apple.blued
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
@@ -77,33 +58,9 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 defaults write com.apple.screencapture type -string "png"
 
 
-# Enable Safari’s debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-# Warn about fraudulent websites
-defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
-
-# Update extensions automatically
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-
-# Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-# Show the full URL in the address bar (note: this still hides the scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
-killall "Safari" &> /dev/null
 # Restart Finder for changes to take affect...
 killall "Finder" &> /dev/null
 #finally, kill the dock

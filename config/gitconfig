@@ -2,7 +2,7 @@
 	name = Silvia Botros
 	email = silvia@dbsmasher.com
 [push]
-	default = matching
+	default = simple
 [color]
   branch = auto
   diff = auto
@@ -42,9 +42,3 @@
 
   # Credit @jessfraz
   pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
-
-
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f

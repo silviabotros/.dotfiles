@@ -1,13 +1,8 @@
 #!/bin/sh
 
 
-#Taps
-/opt/homebrew/bin/brew tap 'caskroom/cask'
-
 /opt/homebrew/bin/brew install tree
-/opt/homebrew/bin/brew install neovim/neovim/neovim
-/opt/homebrew/bin/brew reinstall --HEAD neovim
-/opt/homebrew/bin/brew install thefuck
+/opt/homebrew/bin/brew install neovim
 /opt/homebrew/bin/brew install myrepos
 /opt/homebrew/bin/brew install mycli
 /opt/homebrew/bin/brew install jq
@@ -19,8 +14,6 @@
 /opt/homebrew/bin/brew install gource
 /opt/homebrew/bin/brew install docker
 /opt/homebrew/bin/brew install uv
-/opt/homebrew/bin/brew tap caskroom/cask
-/opt/homebrew/bin/brew tap homebrew/cask-versions
 
 # Apps
 /opt/homebrew/bin/brew install jordanbaird-ice
@@ -35,10 +28,6 @@
 /opt/homebrew/bin/brew install dropshare
 /opt/homebrew/bin/brew install gh
 /opt/homebrew/bin/brew install claude-code
-# config claude
-cp /Users/silviabotros/repos/.dotfiles/config/CLAUDE.md ~/.claude/CLAUDE.md
-
-
 
 #Finally, cleanup
 /opt/homebrew/bin/brew update

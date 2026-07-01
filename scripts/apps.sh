@@ -24,7 +24,3 @@ mas install 1438243180
 mas install 1569813296
 # Xcode
 mas install 497799835
-# Install the apm packages
-# On first run, this will take you to the browser to get a token
-apm stars --install
-apm rebuild
