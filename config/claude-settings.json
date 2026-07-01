@@ -1,7 +1,6 @@
 {
-  "model": "opus",
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true
   },
@@ -38,6 +37,6 @@
       "Compacting tablespace"
     ]
   },
-  "skipDangerousModePermissionPrompt": true,
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true
 }
